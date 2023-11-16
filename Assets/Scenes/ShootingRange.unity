@@ -304,7 +304,7 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   m_TreatSelectionAsValidState: 0
-  m_SmoothMovement: 0
+  m_SmoothMovement: 1
   m_FollowTightness: 10
   m_SnapThresholdDistance: 10
   m_Reticle: {fileID: 0}
@@ -312,8 +312,8 @@ MonoBehaviour:
   m_StopLineAtFirstRaycastHit: 1
   m_StopLineAtSelection: 0
   m_SnapEndpointIfAvailable: 1
-  m_LineBendRatio: 0.5
-  m_OverrideInteractorLineOrigin: 1
+  m_LineBendRatio: 1
+  m_OverrideInteractorLineOrigin: 0
   m_LineOriginTransform: {fileID: 0}
   m_LineOriginOffset: 0
 --- !u!120 &274501113
@@ -1180,7 +1180,7 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   m_TreatSelectionAsValidState: 0
-  m_SmoothMovement: 0
+  m_SmoothMovement: 1
   m_FollowTightness: 10
   m_SnapThresholdDistance: 10
   m_Reticle: {fileID: 0}
@@ -1188,8 +1188,8 @@ MonoBehaviour:
   m_StopLineAtFirstRaycastHit: 1
   m_StopLineAtSelection: 0
   m_SnapEndpointIfAvailable: 1
-  m_LineBendRatio: 0.5
-  m_OverrideInteractorLineOrigin: 1
+  m_LineBendRatio: 1
+  m_OverrideInteractorLineOrigin: 0
   m_LineOriginTransform: {fileID: 0}
   m_LineOriginOffset: 0
 --- !u!120 &511607141
@@ -1871,7 +1871,7 @@ Transform:
   m_GameObject: {fileID: 1178178826}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.62192583, y: 0.6466739, z: 0.55496955}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2085,9 +2085,9 @@ Transform:
   m_GameObject: {fileID: 1586150986}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.26524714, y: -4.165427, z: 7.131816}
-  m_LocalScale: {x: 9.5626, y: 9.5626, z: 9.5626}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2104,7 +2104,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
-  m_Colliders: []
+  m_Colliders:
+  - {fileID: 1586150987}
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
