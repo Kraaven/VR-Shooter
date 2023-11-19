@@ -18,7 +18,7 @@ public class SpawnTargets : MonoBehaviour
 
     public void Start()
     {
-        positions = new bool[10, 10, 10];
+        positions = new bool[10, 10, 15];
         StartCoroutine(SpawnT());
     }
 
@@ -26,12 +26,12 @@ public class SpawnTargets : MonoBehaviour
     {
         while (count < limit)
         {
-            pos = new Vector3(Random.Range(0, 4), Random.Range(0, 8), Random.Range(0, 7));
+            pos = new Vector3(Random.Range(0, 4), Random.Range(0, 8), Random.Range(0,11));
             if (positions[(int)pos.x, (int)pos.y, (int)pos.z] == false)
             {
                 count++;
                 
-                Instantiate(Target, new Vector3(pos.x + 6, pos.y + 1, pos.z - 3), Quaternion.identity);
+                Instantiate(Target, new Vector3(pos.x + 6, pos.y + 1.5f, pos.z - 5), Quaternion.identity);
                 positions[(int)pos.x, (int)pos.y, (int)pos.z] = true;
 
                 yield return new WaitForSeconds(0.1f);

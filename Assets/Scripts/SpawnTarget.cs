@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.iOS;
 using Random = UnityEngine.Random;
 
 public class SpawnTarget : MonoBehaviour
@@ -27,13 +28,17 @@ public class SpawnTarget : MonoBehaviour
                 ren.material = Classic;
                 break;
         }
-        
+
+        StartCoroutine(ShowTarget());
+
     }
 
     // Update is called once per frame
-    private void OnCollisionEnter(Collision collision)
+
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Target"))
+        Debug.Log("Collided");
+        if (other.CompareTag("Target"))
         {
             touch = true;
         }
@@ -41,14 +46,17 @@ public class SpawnTarget : MonoBehaviour
 
     IEnumerator ShowTarget()
     {
+        Debug.Log("Cheking for touching");
         yield return new WaitForSeconds(0.5f);
+        Debug.Log("Done checking");
         if (touch == false)
         {
+            Debug.Log("Showed");
             ren.enabled = true;
         }
         else
-        {
-            Destroy(gameObject);
+        {   Debug.Log("Deleted");
+            Destroy(gameObject.transform.parent.gameObject);
         }
     }
     
