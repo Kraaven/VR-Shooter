@@ -1,8 +1,6 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.iOS;
 using Random = UnityEngine.Random;
 
 public class SpawnTarget : MonoBehaviour
@@ -29,6 +27,7 @@ public class SpawnTarget : MonoBehaviour
                 break;
         }
 
+        gameObject.transform.parent.gameObject.transform.SetParent(spawner.transform); 
         StartCoroutine(ShowTarget());
 
     }
@@ -37,7 +36,6 @@ public class SpawnTarget : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Collided");
         if (other.CompareTag("Target"))
         {
             touch = true;
@@ -46,18 +44,26 @@ public class SpawnTarget : MonoBehaviour
 
     IEnumerator ShowTarget()
     {
-        Debug.Log("Cheking for touching");
         yield return new WaitForSeconds(0.5f);
-        Debug.Log("Done checking");
         if (touch == false)
         {
-            Debug.Log("Showed");
             ren.enabled = true;
         }
         else
-        {   Debug.Log("Deleted");
+        {
+            spawner.GetComponent<SpawnTargets>().count--;
+            Destroy(gameObject.transform.parent.gameObject);
+        }
+    }
+
+    public void KillTarget()
+    {
+        if (ren.enabled)
+        {
+            spawner.GetComponent<SpawnTargets>().count--;
             Destroy(gameObject.transform.parent.gameObject);
         }
     }
     
+
 }
