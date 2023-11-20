@@ -11,11 +11,13 @@ public class SpawnTarget : MonoBehaviour
     private Renderer ren;
     public bool touch;
     public GameObject spawner;
+    private Vector3 currentpos;
     void Start()
     {
         spawner = GameObject.FindWithTag("Spawner");
+        currentpos = spawner.GetComponent<SpawnTargets>().pos;
         ren = GetComponent<Renderer>();
-        GetComponent<Renderer>().enabled = false;
+        ren.enabled = false;
         int r = Random.Range(0, 2);
         switch (r)
         {
@@ -44,7 +46,7 @@ public class SpawnTarget : MonoBehaviour
 
     IEnumerator ShowTarget()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.01f);
         if (touch == false)
         {
             ren.enabled = true;
@@ -52,6 +54,7 @@ public class SpawnTarget : MonoBehaviour
         else
         {
             spawner.GetComponent<SpawnTargets>().count--;
+            spawner.GetComponent<SpawnTargets>().positions[(int)currentpos.x, (int)currentpos.y, (int)currentpos.z] = false;
             Destroy(gameObject.transform.parent.gameObject);
         }
     }
@@ -61,6 +64,7 @@ public class SpawnTarget : MonoBehaviour
         if (ren.enabled)
         {
             spawner.GetComponent<SpawnTargets>().count--;
+            spawner.GetComponent<SpawnTargets>().positions[(int)currentpos.x, (int)currentpos.y, (int)currentpos.z] = false;
             Destroy(gameObject.transform.parent.gameObject);
         }
     }

@@ -8,18 +8,18 @@ public class ShootingScript : MonoBehaviour
     public GameObject ShootingOrigin;
     private bool shotThisFrame = false;
 
-    void Update()
-    {
-        if (!shotThisFrame)
-        {
-            ShootBullet();
-            shotThisFrame = true;
-        }
-    }
-    void LateUpdate()
-    {
-        shotThisFrame = false;
-    }
+    // void Update()
+    // {
+    //     if (!shotThisFrame)
+    //     {
+    //         ShootBullet();
+    //         shotThisFrame = true;
+    //     }
+    // }
+    // void LateUpdate()
+    // {
+    //     shotThisFrame = false;
+    // }
 
     public void ShootBullet()
     {
